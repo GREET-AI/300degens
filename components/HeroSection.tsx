@@ -5,31 +5,23 @@ import { motion } from 'framer-motion'
 import { Shield, Sword, ArrowDown } from 'lucide-react'
 
 const HeroSection = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  })
+  const [degenCount, setDegenCount] = useState(47) // Simulated current degens
+  const maxDegens = 300
+  const targetSolana = 1
 
   useEffect(() => {
-    const launchDate = new Date('2024-02-01T00:00:00Z').getTime()
-    
-    const timer = setInterval(() => {
-      const now = new Date().getTime()
-      const distance = launchDate - now
+    // Simulate real-time updates (in real app, this would fetch from blockchain)
+    const interval = setInterval(() => {
+      setDegenCount(prev => {
+        // Simulate occasional new degens joining
+        if (Math.random() < 0.1 && prev < maxDegens) {
+          return prev + 1
+        }
+        return prev
+      })
+    }, 5000) // Update every 5 seconds
 
-      if (distance > 0) {
-        setTimeLeft({
-          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000)
-        })
-      }
-    }, 1000)
-
-    return () => clearInterval(timer)
+    return () => clearInterval(interval)
   }, [])
 
   const scrollToNext = () => {
@@ -128,32 +120,64 @@ const HeroSection = () => {
               </motion.p>
             </motion.div>
 
-            {/* Countdown Timer */}
+            {/* Degen Counter */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1 }}
-              className="flex justify-center space-x-4 md:space-x-8"
+              className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8"
             >
-              {Object.entries(timeLeft).map(([unit, value], index) => (
-                <motion.div 
-                  key={unit} 
-                  className="text-center"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <div className="bg-sparta-dark/80 backdrop-blur-sm rounded-lg p-4 border border-sparta-bronze sparta-card epic-glow">
-                    <div className="text-3xl md:text-4xl font-sparta font-bold text-sparta-gold">
-                      {value.toString().padStart(2, '0')}
-                    </div>
-                    <div className="text-sm md:text-base font-warrior text-white capitalize">
-                      {unit}
-                    </div>
+              {/* Degens Counter */}
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1.2 }}
+                whileHover={{ scale: 1.1 }}
+              >
+                <div className="bg-sparta-dark/80 backdrop-blur-sm rounded-lg p-4 border border-sparta-bronze sparta-card epic-glow">
+                  <div className="text-3xl md:text-4xl font-sparta font-bold text-sparta-gold">
+                    {degenCount.toString().padStart(3, '0')} / {maxDegens}
                   </div>
-                </motion.div>
-              ))}
+                  <div className="text-sm md:text-base font-warrior text-white">
+                    DEGENS
+                  </div>
+                  <div className="mt-2 w-full bg-sparta-dark/50 rounded-full h-2">
+                    <motion.div 
+                      className="bg-sparta-gold h-2 rounded-full"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${(degenCount / maxDegens) * 100}%` }}
+                      transition={{ duration: 1, delay: 1.5 }}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Solana Counter */}
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1.3 }}
+                whileHover={{ scale: 1.1 }}
+              >
+                <div className="bg-sparta-dark/80 backdrop-blur-sm rounded-lg p-4 border border-sparta-bronze sparta-card epic-glow">
+                  <div className="text-3xl md:text-4xl font-sparta font-bold text-sparta-gold">
+                    {degenCount} / {maxDegens}
+                  </div>
+                  <div className="text-sm md:text-base font-warrior text-white">
+                    SOLANA
+                  </div>
+                  <div className="mt-2 w-full bg-sparta-dark/50 rounded-full h-2">
+                    <motion.div 
+                      className="bg-fire-orange h-2 rounded-full"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${(degenCount / maxDegens) * 100}%` }}
+                      transition={{ duration: 1, delay: 1.6 }}
+                    />
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
 
             {/* CTA Buttons */}
