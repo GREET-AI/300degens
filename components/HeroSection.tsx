@@ -161,16 +161,42 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.2 }}
-              className="flex justify-center items-center"
+              className="flex flex-col gap-4 justify-center items-center"
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://x.com/i/communities/1939675384091750734', '_blank')}
                 className="bg-sparta-gold text-sparta-dark px-8 py-4 rounded-lg font-dalek font-bold text-lg hover:bg-sparta-bronze transition-colors duration-200 flex items-center space-x-2 sparta-button epic-glow"
               >
                 <Shield className="w-5 h-5" />
                 <span>JOIN THE PHALANX</span>
               </motion.button>
+              
+              {/* Contract Address Placeholder */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.4 }}
+                className="bg-sparta-dark/60 backdrop-blur-sm border border-sparta-bronze rounded-lg p-3 text-center"
+              >
+                <p className="text-sm font-warrior text-sparta-bronze mb-1">CONTRACT ADDRESS</p>
+                <div className="flex items-center justify-center gap-2">
+                  <code className="text-xs font-mono text-white bg-sparta-dark/50 px-2 py-1 rounded border border-sparta-bronze/30">
+                    CA: TBA
+                  </code>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="text-sparta-gold hover:text-white transition-colors duration-200"
+                    title="Copy Contract Address"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                  </motion.button>
+                </div>
+              </motion.div>
             </motion.div>
 
             {/* Scroll Indicator */}
