@@ -207,11 +207,15 @@ const HeroSection = () => {
                 <p className="text-sm font-warrior text-sparta-bronze mb-1">CONTRACT ADDRESS</p>
                 <div className="flex items-center justify-center gap-2">
                   <code className="text-xs font-mono text-white bg-sparta-dark/50 px-2 py-1 rounded border border-sparta-bronze/30">
-                    CA: TBA
+                    4HkCQfK93Bkce1aCFheQEWGMvPyffAhGDE6muRSupump
                   </code>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      navigator.clipboard.writeText('4HkCQfK93Bkce1aCFheQEWGMvPyffAhGDE6muRSupump');
+                      // Optional: Show feedback
+                    }}
                     className="text-sparta-gold hover:text-white transition-colors duration-200"
                     title="Copy Contract Address"
                   >
