@@ -161,7 +161,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.2 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              className="flex justify-center items-center"
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -170,14 +170,6 @@ const HeroSection = () => {
               >
                 <Shield className="w-5 h-5" />
                 <span>JOIN THE PHALANX</span>
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-sparta-gold text-sparta-gold px-8 py-4 rounded-lg font-dalek font-bold text-lg hover:bg-sparta-gold hover:text-sparta-dark transition-colors duration-200 flex items-center space-x-2 sparta-button"
-              >
-                <Sword className="w-5 h-5" />
-                <span>WHITEPAPER</span>
               </motion.button>
             </motion.div>
 
