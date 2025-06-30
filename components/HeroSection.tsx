@@ -250,6 +250,32 @@ const HeroSection = () => {
         />
       </div>
     </section>
+    {/* Sparta Meme Video & Info */}
+    <section className="bg-sparta-dark py-12 border-t-4 border-sparta-bronze flex flex-col items-center">
+      <div className="w-full max-w-2xl mx-auto flex flex-col items-center">
+        <div className="w-full aspect-video rounded-xl overflow-hidden border-4 border-sparta-gold shadow-2xl epic-glow mb-6">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/KDRAhiBtOrQ"
+            title="300 This is Sparta Remix!!!"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            className="w-full h-full"
+          ></iframe>
+        </div>
+        <div className="bg-sparta-dark/80 border border-sparta-bronze rounded-xl p-6 w-full text-center meme-info-card epic-glow">
+          <h3 className="text-3xl md:text-4xl font-dalek font-bold text-sparta-gold mb-2 glitch" data-text="SPARTA REMIX MEME VIDEO">SPARTA REMIX MEME VIDEO</h3>
+          <p className="text-lg font-warrior text-white mb-4">The legendary 'This is Sparta' remix that started a global meme movement. Iconic for its techno beat and endless remixes.</p>
+          <div className="flex flex-wrap justify-center gap-6 text-xl font-dalek">
+            <div className="bg-sparta-bronze/20 border border-sparta-bronze rounded-lg px-4 py-2 text-sparta-gold meme-stat">Upload: <span className="text-white">2007</span></div>
+            <div className="bg-sparta-bronze/20 border border-sparta-bronze rounded-lg px-4 py-2 text-sparta-gold meme-stat">Views: <span className="text-white">50M+</span></div>
+            <div className="bg-sparta-bronze/20 border border-sparta-bronze rounded-lg px-4 py-2 text-sparta-gold meme-stat">MemeScore: <span className="text-white">9000+</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 

@@ -684,6 +684,9 @@ body{
 .hidden{
   display: none;
 }
+.aspect-video{
+  aspect-ratio: 16 / 9;
+}
 .h-10{
   height: 2.5rem;
 }
@@ -946,6 +949,9 @@ body{
 .border-t{
   border-top-width: 1px;
 }
+.border-t-4{
+  border-top-width: 4px;
+}
 .border-sparta-bronze{
   --tw-border-opacity: 1;
   border-color: rgb(160 82 45 / var(--tw-border-opacity, 1));
@@ -1086,6 +1092,10 @@ body{
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.py-12{
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
 .text-left{
   text-align: left;
 }
@@ -1204,6 +1214,11 @@ body{
 .shadow-lg{
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-2xl{
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .blur-3xl{
